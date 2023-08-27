@@ -10,18 +10,18 @@ $inferenceRules = "Source/Library/GeoGen.TheoremProver.InferenceRuleProvider/Rul
 $introductionRules = "Source/Library/GeoGen.TheoremProver.ObjectIntroductionRuleProvider/Rules"
 
 # Download settings, example of input and runner
-Invoke-WebRequest "$source/GeoGen/settings.json" -OutFile "settings.json"
-Invoke-WebRequest "$source/GeoGen/input.txt" -OutFile "input.txt"
-Invoke-WebRequest "$source/GeoGen.bat" -OutFile "GeoGen.bat"
+Invoke-WebRequest -UseBasicParsing "$source/GeoGen/settings.json" -OutFile "settings.json"
+Invoke-WebRequest -UseBasicParsing "$source/GeoGen/input.txt" -OutFile "input.txt"
+Invoke-WebRequest -UseBasicParsing "$source/GeoGen.bat" -OutFile "GeoGen.bat"
 
 # Download and unpack GeoGen
-Invoke-WebRequest "$release/GeoGen.zip" -OutFile "GeoGen.zip"
+Invoke-WebRequest -UseBasicParsing "$release/GeoGen.zip" -OutFile "GeoGen.zip"
 Expand-Archive "GeoGen.zip" -DestinationPath "bin"
 Remove-Item "GeoGen.zip"
 Set-Location "bin"
 
 # Download integration
-Invoke-WebRequest "$releaseGeometry/GeoGenIntegration.exe" -OutFile "GeoGenIntegration.exe"
+Invoke-WebRequest -UseBasicParsing "$releaseGeometry/GeoGenIntegration.exe" -OutFile "GeoGenIntegration.exe"
 
 # Download GeoGen rules
 git init
@@ -34,13 +34,13 @@ Remove-Item (".git", "Source") -Recurse -Force
 
 # Download Geometry Extending and add to runner
 if ($extending -eq 0) {
-    Invoke-WebRequest "$release/GeometryExtending.exe" -OutFile "GeometryExtending.exe"
+    Invoke-WebRequest -UseBasicParsing "$release/GeometryExtending.exe" -OutFile "GeometryExtending.exe"
     Add-Content "..\GeoGen.bat" -Value "bin\GeometryExtending.exe Output\"
 }
 
 # Download Geometry and run installer
 if ($geometry -eq 0) {
-    Invoke-WebRequest "$releaseGeometry/Geometry.Desktop.exe" -OutFile "GeometryInstaller.exe"
+    Invoke-WebRequest -UseBasicParsing "$releaseGeometry/Geometry.Desktop.exe" -OutFile "GeometryInstaller.exe"
     .\GeometryInstaller.exe
 }
 

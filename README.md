@@ -7,7 +7,7 @@ This is automated script for installing [GeoGen](https://github.com/PatrikBak/Ge
 Run the following powershell command from the install location:
 
 ```
-Invoke-WebRequest "https://github.com/ilyasm0919/InstallGeoGen/raw/main/install.ps1" | Invoke-Expression
+Invoke-WebRequest -UseBasicParsing "https://github.com/ilyasm0919/InstallGeoGen/raw/main/install.ps1" | Invoke-Expression
 ```
 
 ## Install via PowerShell script
