@@ -43,3 +43,6 @@ if ($geometry -eq 0) {
     Invoke-WebRequest "$releaseGeometry/Geometry.Desktop.exe" -OutFile "GeometryInstaller.exe"
     .\GeometryInstaller.exe
 }
+
+# Restore location
+Set-Location ".."
