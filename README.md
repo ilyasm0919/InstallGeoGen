@@ -1,15 +1,21 @@
 # Install GeoGen
 
-This is automated script for installing [GeoGen](https://github.com/PatrikBak/GeoGen/) and integration with [Geometry](https://github.com/ilyasm0919/Geometry/). It also may install [Geometry Extending](https://github.com/GrafGeometr/GeometryExtending)
+This is an automated script to install [GeoGen](https://github.com/PatrikBak/GeoGen/) and integrate with [Geometry](https://github.com/ilyasm0919/Geometry/). It can also install [Geometry Extending](https://github.com/GrafGeometr/GeometryExtending).
 
-## Install via PowerShell command
+You don't need anything, just Windows and the internet connection. It is recommended to install in an empty directory.
 
-Run the following powershell command from the install location:
+## Install using the PowerShell command
+
+Run the following PowerShell command from the installation location:
 
 ```
 Invoke-WebRequest -UseBasicParsing "https://github.com/ilyasm0919/InstallGeoGen/raw/main/install.ps1" | Invoke-Expression
 ```
 
-## Install via PowerShell script
+## Install using a PowerShell script
 
-Download and run [`install.ps1`](https://github.com/ilyasm0919/InstallGeoGen/tree/main/install.ps1) from the install location.
+Download and run [`install.ps1`](https://github.com/ilyasm0919/InstallGeoGen/tree/main/install.ps1) from the installation location.
+
+## Run GeoGen
+
+Put your initial configuration in the `input.txt` and run the `GeoGen.bat`. The output files will be located in the `Output` folder. You can open them with `Geometry` program (`Open with` > `Look for another app on this PC` > `Geometry Desktop` > `Geometry Desktop.exe`)
