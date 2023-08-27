@@ -1,0 +1,87 @@
+{
+  "Serilog": {
+    "MinimumLevel": "Information",
+    "WriteTo": [
+      {
+        "Name": "Console"
+      },
+      {
+        "Name": "File",
+        "Args": {
+          "Path": "bin/Logs/logs.txt"
+        }
+      },
+      {
+        "Name": "File",
+        "Args": {
+          "Path": "bin/Logs/problems.txt",
+          "RestrictedToMinimumLevel": "Warning"
+        }
+      }
+    ]
+  },
+  "ProblemGeneratorInputProviderSettings": {
+    "InputFilePrefix": "input",
+    "FileExtension": "txt"
+  },
+  "InferenceRuleProviderSettings": {
+    "RuleFolderPath": "bin/InferenceRules",
+    "FileExtension": "txt"
+  },
+  "ObjectIntroductionRuleProviderSettings": {
+    "FilePath": "bin/object_introduction_rules.txt"
+  },
+  "ProblemGenerationRunnerSettings": {
+    "OutputFilePrefix": "output",
+    "ReadableBestTheoremFolder": "Output/GeoGen",
+    "WriteReadableBestTheorems": true,
+    "WriteBestTheoremsContinuously": false,
+    "ProgressLoggingFrequency": 5,
+    "LogProgress": true
+  },
+  "TheoremSorterTypeResolverSettings": {
+    "MaximalTrackedTheoremsPerType": 1000
+  },
+  "ProblemGeneratorSettings": {
+    "NumberOfPictures": 3,
+    "ExcludeAsymmetricConfigurations": true
+  },
+  "TheoremFindingSettings": {
+    "TangentCirclesTheoremFinderSettings": {
+      "ExcludeTangencyInsidePicture": true
+    },
+    "LineTangentToCircleTheoremFinderSettings": {
+      "ExcludeTangencyInsidePicture": true
+    },
+    "SoughtTheoremTypes": [
+      "CollinearPoints",
+      "ConcurrentLines",
+      "ConcyclicPoints",
+      "EqualLineSegments",
+      "LineTangentToCircle",
+      "ParallelLines",
+      "PerpendicularLines",
+      "TangentCircles",
+      "Incidence"
+    ]
+  },
+  "TheoremRankerSettings": {
+    "RankingCoefficients": {
+      "Symmetry": 10000,
+      "Level": 1000,
+      "NumberOfCyclicQuadrilaterals": -10,
+      "NumberOfTheorems": -1
+    }
+  },
+  "TheoremProverSettings": {
+    "AssumeThatSimplifiableTheoremsAreTrue": true,
+    "FindTrivialTheoremsOnlyForLastObject": true
+  },
+  "GenerationSettings": {
+    "ConfigurationFilterType": "MemoryEfficient"
+  },
+  "TraceConstructorFailures": false,
+  "TraceGeometryFailures": false,
+  "TraceInvalidInferences": false,
+  "TraceSortingGeometryFailures": false,
+}
