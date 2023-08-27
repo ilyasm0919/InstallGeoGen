@@ -6,8 +6,6 @@ $extending = $Host.UI.PromptForChoice("Simplifier", "Do you want to install Geom
 $source = "https://github.com/ilyasm0919/InstallGeoGen/raw/main"
 $release = "https://github.com/ilyasm0919/InstallGeoGen/releases/latest/download"
 $releaseGeometry = "https://github.com/ilyasm0919/Geometry/releases/latest/download"
-$inferenceRules = "Source/Library/GeoGen.TheoremProver.InferenceRuleProvider/Rules"
-$introductionRules = "Source/Library/GeoGen.TheoremProver.ObjectIntroductionRuleProvider/Rules"
 
 # Download settings, example of input and runner
 Invoke-WebRequest -UseBasicParsing "$source/GeoGen/settings.json" -OutFile "settings.json"
@@ -22,15 +20,6 @@ Set-Location "bin"
 
 # Download integration
 Invoke-WebRequest -UseBasicParsing "$releaseGeometry/GeoGenIntegration.exe" -OutFile "GeoGenIntegration.exe"
-
-# Download GeoGen rules
-git init
-git remote add origin "https://github.com/PatrikBak/GeoGen"
-git sparse-checkout set $inferenceRules $introductionRules
-git pull origin master
-Copy-Item -Path $inferenceRules -Destination "InferenceRules" -Recurse
-Copy-Item -Path "$introductionRules\*" -Destination "."
-Remove-Item (".git", "Source") -Recurse -Force
 
 # Download Geometry Extending and add to runner
 if ($extending -eq 0) {
