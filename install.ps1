@@ -10,7 +10,7 @@ $inferenceRules = "Source/Library/GeoGen.TheoremProver.InferenceRuleProvider/Rul
 $introductionRules = "Source/Library/GeoGen.TheoremProver.ObjectIntroductionRuleProvider/Rules"
 
 # Download settings, example of input and runner
-Invoke-WebRequest "$source/GeoGen/settings.json" -OutFile "setting.json"
+Invoke-WebRequest "$source/GeoGen/settings.json" -OutFile "settings.json"
 Invoke-WebRequest "$source/GeoGen/input.txt" -OutFile "input.txt"
 Invoke-WebRequest "$source/GeoGen.bat" -OutFile "GeoGen.bat"
 
@@ -35,7 +35,7 @@ Remove-Item (".git", "Source") -Recurse -Force
 # Download Geometry Extending and add to runner
 if ($extending -eq 0) {
     Invoke-WebRequest "$release/GeometryExtending.exe" -OutFile "GeometryExtending.exe"
-    Add-Content "..\GeoGen.bat" -Value "bin\GeometryExtending.exe"
+    Add-Content "..\GeoGen.bat" -Value "bin\GeometryExtending.exe Output\"
 }
 
 # Download Geometry and run installer

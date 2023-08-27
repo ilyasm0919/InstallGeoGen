@@ -21,6 +21,7 @@
     ]
   },
   "ProblemGeneratorInputProviderSettings": {
+    "InputFolderPath": ".",
     "InputFilePrefix": "input",
     "FileExtension": "txt"
   },
@@ -83,5 +84,5 @@
   "TraceConstructorFailures": false,
   "TraceGeometryFailures": false,
   "TraceInvalidInferences": false,
-  "TraceSortingGeometryFailures": false,
+  "TraceSortingGeometryFailures": false
 }
