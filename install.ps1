@@ -1,4 +1,5 @@
 # Ask user for options
+$dotnet = $Host.UI.PromptForChoice(".NET", "Do you want to install .NET 7.0 (it is required to run GeoGen)?", ("&Yes", "&No"), 0)
 $geometry = $Host.UI.PromptForChoice("Geometry", "Do you want to install Geometry?", ("&Yes", "&No"), 0)
 $extending = $Host.UI.PromptForChoice("Simplifier", "Do you want to install Geometry Extending?", ("&Yes", "&No"), 0)
 
@@ -6,6 +7,11 @@ $extending = $Host.UI.PromptForChoice("Simplifier", "Do you want to install Geom
 $source = "https://github.com/ilyasm0919/InstallGeoGen/raw/main"
 $release = "https://github.com/ilyasm0919/InstallGeoGen/releases/latest/download"
 $releaseGeometry = "https://github.com/ilyasm0919/Geometry/releases/latest/download"
+
+# Install dotnet
+if ($dotnet -eq 0) {
+    winget install Microsoft.DotNet.Runtime.7
+}
 
 # Download settings, example of input and runner
 Invoke-WebRequest -UseBasicParsing "$source/GeoGen/settings.json" -OutFile "settings.json"
